@@ -7,7 +7,7 @@ class Puller
   end
 
   def run
-    #StoredCalendarEvents.new
+    StoredCalendarEvents.new << todays_events
   end
 
   #def open_hangout
@@ -21,20 +21,16 @@ class Puller
     #`echo "(pgrep Chrome | xargs kill)" | at #{current_event.end_time.strftime("%H:%M")}`
   #end
 
-  #def current_event
-    #@curren_event ||= todays_events.detect do |event|
-                        #event.now? && event.hangout_link?
-                      #end
-  #end
-
   private
 
   def todays_events
-    @todays_events ||= client.find_events_in_range(
+    @todays_events ||= Array(client.find_events_in_range(
       Time.parse("#{current_day} 00:00"),
       Time.parse("#{current_day} 23:59"),
       order_by: 'starttime'
-    )
+    )).select do |event|
+      event.hangout_link?
+    end
   end
 
   def client

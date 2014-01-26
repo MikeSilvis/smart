@@ -5,10 +5,12 @@ describe Puller do
 
   describe '.run' do
 
-  end
+    it 'saves calendar events' do
+      VCR.use_cassette('todays_events') do
+        expect { subject.run }.to change { StoredCalendarEvents.new.events.size }.by(1)
+      end
+    end
 
-  #context 'handles a hangout process in the browser' do
-    #it { subject.open_hangout }
-  #end
+  end
 
 end

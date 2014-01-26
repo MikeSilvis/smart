@@ -2,7 +2,17 @@ require 'rubygems'
 require 'bundler/setup'
 require 'debugger'
 require 'smart'
+require 'vcr'
+
+VCR.configure do |c|
+  c.cassette_library_dir = 'fixtures/vcr_cassettes'
+  c.hook_into :faraday
+end
 
 RSpec.configure do |config|
+
+  config.before do
+    StoredCalendarEvents.any_instance.stub(:storage).and_return('test.yml')
+  end
 
 end

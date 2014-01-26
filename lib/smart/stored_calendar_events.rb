@@ -10,6 +10,7 @@ class StoredCalendarEvents
       Array(new_events).each do |event|
         events << {
           id: event.id,
+          hangout_link: event.hangout_link,
           start_time: event.start_time,
           end_time: event.end_time
         }
