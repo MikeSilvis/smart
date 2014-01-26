@@ -1,7 +1,8 @@
-require 'debugger'
-require 'smart/version'
 require 'google_calendar'
+require 'yaml'
+require 'smart/version'
 require 'smart/google/event'
+require 'smart/stored_calendar_events'
 require 'puller'
 
 module Smart
