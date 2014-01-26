@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-describe StoredCalendarEvents do
-  subject { StoredCalendarEvents.new }
+describe Smart::StoredCalendarEvents do
+  subject { Smart::StoredCalendarEvents.new }
   before { File.open(subject.send(:file), 'w') {|file| file.truncate(0) } }
 
   describe '.<<' do

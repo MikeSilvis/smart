@@ -12,7 +12,7 @@ end
 RSpec.configure do |config|
 
   config.before do
-    StoredCalendarEvents.any_instance.stub(:storage).and_return('test.yml')
+    Smart::StoredCalendarEvents.any_instance.stub(:storage).and_return('test.yml')
   end
 
 end

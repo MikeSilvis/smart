@@ -3,7 +3,7 @@ require 'yaml'
 require 'smart/version'
 require 'smart/google/event'
 require 'smart/stored_calendar_events'
-require 'puller'
+require 'smart/puller'
 
 module Smart
   HANGOUT_REGEX = /^https:\/\/plus.google.com\/hangouts\/_\//

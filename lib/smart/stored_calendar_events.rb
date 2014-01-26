@@ -1,4 +1,4 @@
-class StoredCalendarEvents
+class Smart::StoredCalendarEvents
   attr_accessor :storage
 
   def initialize(storage = 'production.yml')

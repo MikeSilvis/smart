@@ -1,4 +1,4 @@
-class Puller
+class Smart::Puller
   attr_accessor :username, :password
 
   def initialize
@@ -7,7 +7,7 @@ class Puller
   end
 
   def run
-    StoredCalendarEvents.new << todays_events
+    Smart::StoredCalendarEvents.new << todays_events
   end
 
   #def open_hangout
