@@ -2,7 +2,6 @@ require 'spec_helper'
 
 describe Smart::StoredCalendarEvents do
   subject { Smart::StoredCalendarEvents.new }
-  before { File.open(subject.send(:file), 'w') {|file| file.truncate(0) } }
 
   describe '.<<' do
     let(:event) { double(id: 123, start_time: Time.now, end_time: Time.now + 300, hangout_link: 'http://mikesilvis.com') }
@@ -13,16 +12,10 @@ describe Smart::StoredCalendarEvents do
       it { expect { subject << event }.to change{subject.events.size}.by(0) }
     end
 
-    context 'can add an arra of items' do
+    context 'can add an array of items' do
       let(:event_2) { double(id: 124, start_time: Time.now, end_time: Time.now + 300, hangout_link: 'http://mikesilvis.com') }
       it { expect { subject << [event, event_2] }.to change{subject.events.size}.by(2) }
     end
-  end
-
-  describe '.current' do
-    let(:event) { double(id: 321, start_time: (Time.now - 300), end_time: Time.now + 300, hangout_link: 'http://mikesilvis.com') }
-    before { subject << event }
-    it { subject.current[:id].should == event.id }
   end
 
   describe '.delete_old_events' do

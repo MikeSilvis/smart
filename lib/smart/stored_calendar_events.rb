@@ -18,15 +18,6 @@ class Smart::StoredCalendarEvents
     end
   end
 
-  def current
-    delete_old_events
-
-    events.sort_by do |event|
-      event[:start_time]
-    end.first
-
-  end
-
   def delete_old_events
     update_client do
       events.reject! do |event|
