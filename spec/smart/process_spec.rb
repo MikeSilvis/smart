@@ -12,7 +12,6 @@ describe Smart::Process do
   end
 
   describe '.old_events' do
-
     context 'when an event is old' do
       let(:end_time) { Time.now - 100 }
       it { subject.old_event.should == true }
@@ -22,6 +21,5 @@ describe Smart::Process do
       let(:end_time) { Time.now + 300 }
       it { subject.old_event.should == false }
     end
-
   end
 end

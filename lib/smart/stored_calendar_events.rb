@@ -45,5 +45,4 @@ class Smart::StoredCalendarEvents
   def file
     @file ||= File.join('.', 'db', storage)
   end
-
 end

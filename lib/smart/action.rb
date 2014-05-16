@@ -1,5 +1,4 @@
 class Smart::Action
-
   def open_hangout
     if current = process.current
       `open #{current[:link]}`
@@ -17,5 +16,4 @@ class Smart::Action
   def process
     @process ||= Smart::Process
   end
-
 end

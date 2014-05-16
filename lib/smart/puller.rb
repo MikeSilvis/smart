@@ -40,5 +40,4 @@ class Smart::Puller
   def current_day
     Time.now.strftime('%Y-%m-%d')
   end
-
 end

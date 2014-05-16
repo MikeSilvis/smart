@@ -10,10 +10,8 @@ VCR.configure do |c|
 end
 
 RSpec.configure do |config|
-
   config.before do
     Smart::StoredCalendarEvents.any_instance.stub(:storage).and_return('test.yml')
     File.open(Smart::StoredCalendarEvents.new.send(:file), 'w') {|file| file.truncate(0) }
   end
-
 end

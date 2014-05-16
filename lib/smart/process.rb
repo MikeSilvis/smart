@@ -1,5 +1,4 @@
 class Smart::Process
-
   def current
     events.sort_by do |event|
       event[:start_time]
@@ -15,5 +14,4 @@ class Smart::Process
   def events
     @events ||= Smart::StoredCalendarEvents.new.events
   end
-
 end

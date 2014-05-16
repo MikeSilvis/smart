@@ -23,5 +23,4 @@ describe Smart::StoredCalendarEvents do
     before { subject << event }
     it { expect { subject.delete_old_events }.to change{subject.events.size}.by(-1) }
   end
-
 end
